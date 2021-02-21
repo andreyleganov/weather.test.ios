@@ -6,17 +6,29 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    private let viewController = ViewController()
+    private var locationManager = CLLocationManager()
+    private var currentLocation: CLLocation?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+        window?.backgroundColor = .white
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,3 +62,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+// MARK: - CLLocationManagerDelegate
+extension SceneDelegate: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard !locations.isEmpty, currentLocation == nil else {
+            return
+        }
+
+//        currentLocation = locations.first // Current location coords
+        currentLocation = CLLocation(latitude: 43.684672, longitude: 40.221651) // Krasnaya polyana coords
+        locationManager.stopUpdatingLocation()
+        
+        guard let currentLocation = currentLocation else {
+            return
+        }
+        let latitude = currentLocation.coordinate.latitude
+        let logitude = currentLocation.coordinate.longitude
+        
+        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(logitude)&exclude=minutely,alerts&appid=f7346c6719dd50e7f342ab1d8c546f25&lang=ru&units=metric"
+        
+        URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let result = try decoder.decode(GeneralResponse.self, from: data)
+                self.viewController.weather = result
+                
+                DispatchQueue.main.async {
+                    self.window?.rootViewController = self.viewController
+                }
+            } catch {
+                print(error)
+            }
+            
+        }.resume()
+
+    }
+}

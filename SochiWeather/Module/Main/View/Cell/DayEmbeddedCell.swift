@@ -40,23 +40,56 @@ class DayEmbeddedCell: UICollectionViewCell {
         return label
     }()
     
-    let indicatorView: UIView = {
-        let view = UIView()
+    private let popLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Осадки"
+        label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        label.textColor = UIColor(hex6: 0x000000, alpha: 0.5)
+        label.textAlignment = .left
         
-        return view
+        return label
+    }()
+    
+    let percentLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        label.textColor = UIColor(hex6: 0x000000, alpha: 0.5)
+        label.textAlignment = .right
+        
+        return label
+    }()
+    
+    private let snowLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Снег"
+        label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        label.textColor = UIColor(hex6: 0x000000, alpha: 0.5)
+        label.textAlignment = .left
+        
+        return label
+    }()
+    
+    let mmLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        label.textColor = UIColor(hex6: 0x000000, alpha: 0.5)
+        label.textAlignment = .right
+        
+        return label
     }()
     
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-            
-        layer.cornerRadius = 16
         
         contentView.addSubview(containerView)
         containerView.addSubview(imageView)
         containerView.addSubview(dateLabel)
-        containerView.addSubview(indicatorView)
+        containerView.addSubview(popLabel)
+        containerView.addSubview(percentLabel)
+        containerView.addSubview(snowLabel)
+        containerView.addSubview(mmLabel)
         
         setNeedsUpdateConstraints()
     }
@@ -81,15 +114,30 @@ class DayEmbeddedCell: UICollectionViewCell {
         
         dateLabel.snp.remakeConstraints { make in
             make.leading.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(16)
         }
         
-        indicatorView.snp.remakeConstraints { make in
-            make.height.equalTo(6)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+        popLabel.snp.remakeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.top.equalTo(imageView.snp.bottom).offset(13)
+        }
+        
+        percentLabel.snp.remakeConstraints { make in
+            make.leading.equalTo(popLabel.snp.trailing).offset(10)
+            make.top.equalTo(popLabel)
+            make.trailing.equalToSuperview().inset(16)
+        }
+        
+        snowLabel.snp.remakeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().inset(10)
+        }
+        
+        mmLabel.snp.remakeConstraints { make in
+            make.leading.equalTo(snowLabel.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().inset(16)
+            make.bottom.equalTo(snowLabel)
         }
         
         super.updateConstraints()

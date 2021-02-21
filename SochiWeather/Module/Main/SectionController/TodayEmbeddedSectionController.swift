@@ -9,12 +9,18 @@ import IGListKit
 
 class TodayEmbeddedSectionController: ListSectionController {
     
-    var model: TodaySectionModel!
+    var model: TodayEmbeddedSectionModel!
     
     // MARK: - Lifecycle
     
+    override init() {
+        super.init()
+        
+        minimumLineSpacing = 16
+    }
+    
     override func didUpdate(to object: Any) {
-        model = object as? TodaySectionModel
+        model = object as? TodayEmbeddedSectionModel
     }
     
     override func numberOfItems() -> Int {
@@ -22,7 +28,7 @@ class TodayEmbeddedSectionController: ListSectionController {
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: 42, height: 79)
+        return CGSize(width: 78, height: 124)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -42,6 +48,14 @@ class TodayEmbeddedSectionController: ListSectionController {
                     cell.imageView.image = image
                 }
             }
+        }
+        
+        if let pop = model.items[index].pop, let snow = model.items[index].snow?.lastHour {
+            cell.percentLabel.text = "\(Int(pop) * 100)%"
+            cell.mmLabel.text = "\(snow) мм"
+        } else {
+            cell.percentLabel.text = "\(0)%"
+            cell.mmLabel.text = "\(0) мм"
         }
         
         return cell

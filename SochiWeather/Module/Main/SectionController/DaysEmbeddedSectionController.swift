@@ -9,7 +9,7 @@ import IGListKit
 
 class DaysEmbeddedSectionController: ListSectionController {
     
-    var model: DaysSectionModel!
+    var model: DaysEmbeddedSectionModel!
     
     // MARK: - Lifecycle
     
@@ -20,7 +20,7 @@ class DaysEmbeddedSectionController: ListSectionController {
     }
     
     override func didUpdate(to object: Any) {
-        model = object as? DaysSectionModel
+        model = object as? DaysEmbeddedSectionModel
     }
     
     override func numberOfItems() -> Int {
@@ -37,6 +37,7 @@ class DaysEmbeddedSectionController: ListSectionController {
         let timeInterval = Double(model.items[index].dt)
         let date = Date(timeIntervalSince1970: timeInterval)
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.init(identifier: "ru_RU")
         dateFormatter.dateFormat = "dd MMMM"
         dateFormatter.timeZone = .current
         let dt = dateFormatter.string(from: date)
@@ -49,6 +50,14 @@ class DaysEmbeddedSectionController: ListSectionController {
                     cell.imageView.image = image
                 }
             }
+        }
+        
+        if let pop = model.items[index].pop, let snow = model.items[index].snow {
+            cell.percentLabel.text = "\(Int(pop) * 100)%"
+            cell.mmLabel.text = "\(snow) мм"
+        } else {
+            cell.percentLabel.text = "\(0)%"
+            cell.mmLabel.text = "\(0) мм"
         }
 
         return cell

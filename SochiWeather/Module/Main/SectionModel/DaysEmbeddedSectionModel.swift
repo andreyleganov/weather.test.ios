@@ -8,6 +8,7 @@
 import IGListKit
 
 class DaysEmbeddedSectionModel {
+    
     var items: [DailyWeather]
     
     init(items: [DailyWeather]) {

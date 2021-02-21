@@ -9,7 +9,7 @@ import IGListKit
 
 class TodayEmbeddedSectionModel {
     
-    let items: [HourlyWeather]
+    var items: [HourlyWeather]
     
     init(items: [HourlyWeather]) {
         self.items = items
