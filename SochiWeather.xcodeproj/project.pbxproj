@@ -39,7 +39,7 @@
 		D3C92C5225E144F7002A0DB5 /* TodaySectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C5125E144F7002A0DB5 /* TodaySectionController.swift */; };
 		D3C92C5B25E152E0002A0DB5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C5A25E152E0002A0DB5 /* HeaderView.swift */; };
 		D3C92C6825E2AB63002A0DB5 /* CLLocation+Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C6725E2AB63002A0DB5 /* CLLocation+Place.swift */; };
-		D3C92C7725E421C7002A0DB5 /* UIImage+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C7625E421C7002A0DB5 /* UIImage+getImage.swift */; };
+		D3C92C8525E425CF002A0DB5 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C8425E425CF002A0DB5 /* ImageProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +78,7 @@
 		D3C92C5125E144F7002A0DB5 /* TodaySectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySectionController.swift; sourceTree = "<group>"; };
 		D3C92C5A25E152E0002A0DB5 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D3C92C6725E2AB63002A0DB5 /* CLLocation+Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Place.swift"; sourceTree = "<group>"; };
-		D3C92C7625E421C7002A0DB5 /* UIImage+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+getImage.swift"; sourceTree = "<group>"; };
+		D3C92C8425E425CF002A0DB5 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		DBCDDEDEC7C29E115A824EAC /* Pods-SochiWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SochiWeather.release.xcconfig"; path = "Target Support Files/Pods-SochiWeather/Pods-SochiWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +175,7 @@
 		D3C92B4225D5B164002A0DB5 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				D3C92C8325E425BC002A0DB5 /* Provider */,
 				D3C92BED25DE6FCF002A0DB5 /* Model */,
 				D3C92B4925D5B1BE002A0DB5 /* Extension */,
 			);
@@ -186,7 +187,6 @@
 			children = (
 				D3C92B4A25D5B1CE002A0DB5 /* UIColor+hex.swift */,
 				D3C92C6725E2AB63002A0DB5 /* CLLocation+Place.swift */,
-				D3C92C7625E421C7002A0DB5 /* UIImage+getImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -239,6 +239,14 @@
 				D3C92C4E25E14472002A0DB5 /* HourlyWeather.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D3C92C8325E425BC002A0DB5 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				D3C92C8425E425CF002A0DB5 /* ImageProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,7 +375,6 @@
 				D3C92C2125E1378B002A0DB5 /* DateSectionModel.swift in Sources */,
 				D3C92B2A25D5AF80002A0DB5 /* ViewController.swift in Sources */,
 				D3C92B5D25D6F75B002A0DB5 /* TodayEmbeddedSectionModel.swift in Sources */,
-				D3C92C7725E421C7002A0DB5 /* UIImage+getImage.swift in Sources */,
 				D3C92C2425E13833002A0DB5 /* TempSectionModel.swift in Sources */,
 				D3C92BEF25DE6FE3002A0DB5 /* Weather.swift in Sources */,
 				D3C92C1725E133FE002A0DB5 /* DateCell.swift in Sources */,
@@ -375,6 +382,7 @@
 				D3C92B4B25D5B1CE002A0DB5 /* UIColor+hex.swift in Sources */,
 				D3C92C2825E138A8002A0DB5 /* DateSectionController.swift in Sources */,
 				D3C92B2625D5AF80002A0DB5 /* AppDelegate.swift in Sources */,
+				D3C92C8525E425CF002A0DB5 /* ImageProvider.swift in Sources */,
 				D3C92C5B25E152E0002A0DB5 /* HeaderView.swift in Sources */,
 				D3C92B5925D6F700002A0DB5 /* DaysEmbeddedSectionModel.swift in Sources */,
 				D3C92C4F25E14472002A0DB5 /* HourlyWeather.swift in Sources */,

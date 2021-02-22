@@ -38,7 +38,7 @@ class DateSectionController: ListSectionController {
         cell.subtitleLabel.text = model.weather.current.weather[0].description
 
         DispatchQueue.global().async {
-            if let image = UIImage.getImage(from: URL(string: "http://openweathermap.org/img/wn/" + self.model.weather.current.weather[0].icon + "@2x.png")) {
+            if let image = ImageProvider.shared.getImage(from: URL(string: "http://openweathermap.org/img/wn/" + self.model.weather.current.weather[0].icon + "@2x.png")) {
                 DispatchQueue.main.async {
                     cell.imageView.image = image
                 }

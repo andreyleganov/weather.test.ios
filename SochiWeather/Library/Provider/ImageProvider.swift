@@ -1,5 +1,5 @@
 //
-//  UIImage+getImage.swift
+//  ImageProvider.swift
 //  SochiWeather
 //
 //  Created by Andrey Leganov on 2/22/21.
@@ -7,9 +7,17 @@
 
 import UIKit
 
-extension UIImage {
+protocol ImageProviderProtocol: class {
     
-    static func getImage(from url: URL?) -> UIImage? {
+    func getImage(from url: URL?) -> UIImage?
+}
+
+class ImageProvider: ImageProviderProtocol {
+    
+    static var shared: ImageProviderProtocol = ImageProvider()
+    
+    func getImage(from url: URL?) -> UIImage? {
+        
         guard let url = url else {
             return nil
         }
