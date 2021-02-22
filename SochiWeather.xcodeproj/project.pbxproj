@@ -39,6 +39,7 @@
 		D3C92C5225E144F7002A0DB5 /* TodaySectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C5125E144F7002A0DB5 /* TodaySectionController.swift */; };
 		D3C92C5B25E152E0002A0DB5 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C5A25E152E0002A0DB5 /* HeaderView.swift */; };
 		D3C92C6825E2AB63002A0DB5 /* CLLocation+Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C6725E2AB63002A0DB5 /* CLLocation+Place.swift */; };
+		D3C92C7725E421C7002A0DB5 /* UIImage+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C92C7625E421C7002A0DB5 /* UIImage+getImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		D3C92C5125E144F7002A0DB5 /* TodaySectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaySectionController.swift; sourceTree = "<group>"; };
 		D3C92C5A25E152E0002A0DB5 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D3C92C6725E2AB63002A0DB5 /* CLLocation+Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Place.swift"; sourceTree = "<group>"; };
+		D3C92C7625E421C7002A0DB5 /* UIImage+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+getImage.swift"; sourceTree = "<group>"; };
 		DBCDDEDEC7C29E115A824EAC /* Pods-SochiWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SochiWeather.release.xcconfig"; path = "Target Support Files/Pods-SochiWeather/Pods-SochiWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 			children = (
 				D3C92B4A25D5B1CE002A0DB5 /* UIColor+hex.swift */,
 				D3C92C6725E2AB63002A0DB5 /* CLLocation+Place.swift */,
+				D3C92C7625E421C7002A0DB5 /* UIImage+getImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				D3C92C2125E1378B002A0DB5 /* DateSectionModel.swift in Sources */,
 				D3C92B2A25D5AF80002A0DB5 /* ViewController.swift in Sources */,
 				D3C92B5D25D6F75B002A0DB5 /* TodayEmbeddedSectionModel.swift in Sources */,
+				D3C92C7725E421C7002A0DB5 /* UIImage+getImage.swift in Sources */,
 				D3C92C2425E13833002A0DB5 /* TempSectionModel.swift in Sources */,
 				D3C92BEF25DE6FE3002A0DB5 /* Weather.swift in Sources */,
 				D3C92C1725E133FE002A0DB5 /* DateCell.swift in Sources */,

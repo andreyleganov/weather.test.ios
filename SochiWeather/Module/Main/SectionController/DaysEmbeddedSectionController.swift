@@ -43,9 +43,9 @@ class DaysEmbeddedSectionController: ListSectionController {
         let dt = dateFormatter.string(from: date)
         
         cell.dateLabel.text = dt
-
+        
         DispatchQueue.global().async {
-            if let image = self.getImage(from: self.model.items[index].weather[0].icon) {
+            if let image = UIImage.getImage(from: URL(string: "http://openweathermap.org/img/wn/" + self.model.items[index].weather[0].icon + "@2x.png")) {
                 DispatchQueue.main.async {
                     cell.imageView.image = image
                 }
@@ -70,22 +70,5 @@ class DaysEmbeddedSectionController: ListSectionController {
         }
 
         return cell
-    }
-    
-    // MARK: - Private
-    
-    private func getImage(from string: String) -> UIImage? {
-        guard let url = URL(string: "http://openweathermap.org/img/wn/" + string + "@2x.png") else {
-            return nil
-        }
-        var image: UIImage? = nil
-        do {
-            let data = try Data(contentsOf: url)
-            image = UIImage(data: data)
-        } catch {
-            print(error)
-        }
-        
-        return image
     }
 }

@@ -38,7 +38,7 @@ class DateSectionController: ListSectionController {
         cell.subtitleLabel.text = model.weather.current.weather[0].description
 
         DispatchQueue.global().async {
-            if let image = self.getImage(from: self.model.weather.current.weather[0].icon) {
+            if let image = UIImage.getImage(from: URL(string: "http://openweathermap.org/img/wn/" + self.model.weather.current.weather[0].icon + "@2x.png")) {
                 DispatchQueue.main.async {
                     cell.imageView.image = image
                 }
@@ -56,22 +56,5 @@ class DateSectionController: ListSectionController {
         }
         
         return cell
-    }
-    
-    // MARK: - Private
-    
-    private func getImage(from string: String) -> UIImage? {
-        guard let url = URL(string: "http://openweathermap.org/img/wn/" + string + "@2x.png") else {
-            return nil
-        }
-        var image: UIImage? = nil
-        do {
-            let data = try Data(contentsOf: url)
-            image = UIImage(data: data)
-        } catch {
-            print(error)
-        }
-        
-        return image
     }
 }
