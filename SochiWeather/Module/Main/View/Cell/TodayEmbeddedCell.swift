@@ -140,7 +140,7 @@ class TodayEmbeddedCell: UICollectionViewCell {
         }
         
         percentLabel.snp.remakeConstraints { make in
-            make.leading.equalTo(popLabel.snp.trailing).offset(6)
+            make.leading.equalTo(popLabel.snp.trailing)
             make.top.equalTo(popLabel)
             make.trailing.equalToSuperview().inset(10)
         }
