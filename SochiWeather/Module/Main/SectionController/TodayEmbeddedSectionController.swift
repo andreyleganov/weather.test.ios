@@ -43,7 +43,7 @@ class TodayEmbeddedSectionController: ListSectionController {
         cell.tempLabel.text = "\(Int(model.items[index].temp))º"
 
         DispatchQueue.global().async {
-            if let image = ImageProvider.shared.getImage(from: URL(string: "http://openweathermap.org/img/wn/" + self.model.items[index].weather[0].icon + "@2x.png")) {
+            if let image = ImageProvider.shared.getImage(from: self.model.items[index].weather[0].icon) {
                 DispatchQueue.main.async {
                     cell.imageView.image = image
                 }

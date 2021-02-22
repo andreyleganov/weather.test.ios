@@ -9,16 +9,16 @@ import UIKit
 
 protocol ImageProviderProtocol: class {
     
-    func getImage(from url: URL?) -> UIImage?
+    func getImage(from string: String) -> UIImage?
 }
 
 class ImageProvider: ImageProviderProtocol {
     
     static var shared: ImageProviderProtocol = ImageProvider()
     
-    func getImage(from url: URL?) -> UIImage? {
+    func getImage(from string: String) -> UIImage? {
         
-        guard let url = url else {
+        guard let url = URL(string: "http://openweathermap.org/img/wn/" + string + "@2x.png") else {
             return nil
         }
         var image: UIImage? = nil
