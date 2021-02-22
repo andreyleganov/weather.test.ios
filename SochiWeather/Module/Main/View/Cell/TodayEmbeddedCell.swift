@@ -135,24 +135,24 @@ class TodayEmbeddedCell: UICollectionViewCell {
         }
         
         popLabel.snp.remakeConstraints { make in
-            make.leading.equalToSuperview().offset(6)
+            make.leading.equalToSuperview().offset(10)
             make.top.equalTo(tempLabel.snp.bottom).offset(9)
         }
         
         percentLabel.snp.remakeConstraints { make in
             make.leading.equalTo(popLabel.snp.trailing).offset(6)
             make.top.equalTo(popLabel)
-            make.trailing.equalToSuperview().inset(6)
+            make.trailing.equalToSuperview().inset(10)
         }
         
         snowLabel.snp.remakeConstraints { make in
-            make.leading.equalToSuperview().offset(6)
+            make.leading.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().inset(6)
         }
         
         mmLabel.snp.remakeConstraints { make in
             make.leading.equalTo(snowLabel.snp.trailing).offset(6)
-            make.trailing.equalToSuperview().inset(6)
+            make.trailing.equalToSuperview().inset(10)
             make.bottom.equalTo(snowLabel)
         }
         
