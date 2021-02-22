@@ -52,12 +52,21 @@ class DaysEmbeddedSectionController: ListSectionController {
             }
         }
         
-        if let pop = model.items[index].pop, let snow = model.items[index].snow {
-            cell.percentLabel.text = "\(Int(pop) * 100)%"
+        let pop = model.items[index].pop
+        if pop != 0 {
+            let percent = pop * 100
+            let formatter = NumberFormatter()
+            formatter.minimumFractionDigits = 0
+            let string = formatter.string(from: NSNumber(value: percent)) ?? ""
+            cell.percentLabel.text = string + "%"
+        } else {
+            cell.percentLabel.text = "0%"
+        }
+        
+        if let snow = model.items[index].snow {
             cell.mmLabel.text = "\(snow) мм"
         } else {
-            cell.percentLabel.text = "\(0)%"
-            cell.mmLabel.text = "\(0) мм"
+            cell.mmLabel.text = "0 мм"
         }
 
         return cell

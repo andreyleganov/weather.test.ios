@@ -18,7 +18,7 @@ struct HourlyWeather: Codable {
     var windSpeed: Double
     var windDeg: Int
     var weather: [Weather]
-    var pop: Double?
+    var pop: Double
     var snow: Snow?
     var rain: Rain?
 }

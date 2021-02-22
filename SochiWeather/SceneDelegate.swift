@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    private let viewController = ViewController()
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
 
@@ -70,8 +69,8 @@ extension SceneDelegate: CLLocationManagerDelegate {
             return
         }
 
-//        currentLocation = locations.first // Current location coords
-        currentLocation = CLLocation(latitude: 43.684672, longitude: 40.221651) // Krasnaya polyana coords
+        currentLocation = locations.first // Current location coords
+//        currentLocation = CLLocation(latitude: 43.684672, longitude: 40.221651) // Krasnaya polyana coords
         locationManager.stopUpdatingLocation()
         
         guard let currentLocation = currentLocation else {
@@ -91,10 +90,11 @@ extension SceneDelegate: CLLocationManagerDelegate {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let result = try decoder.decode(GeneralResponse.self, from: data)
-                self.viewController.weather = result
-                
+
                 DispatchQueue.main.async {
-                    self.window?.rootViewController = self.viewController
+                    let viewController = ViewController()
+                    viewController.weather = result
+                    self.window?.rootViewController = viewController
                 }
             } catch {
                 print(error)

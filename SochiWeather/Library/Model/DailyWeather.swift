@@ -20,7 +20,7 @@ struct DailyWeather: Codable {
     var windSpeed: Double
     var windDeg: Int
     var weather: [Weather]
-    var pop: Double?
+    var pop: Double
     var snow: Double?
     var rain: Double?
 }
