@@ -69,21 +69,4 @@ class TodayEmbeddedSectionController: ListSectionController {
         
         return cell
     }
-    
-    // MARK: - Private
-    
-    private func getImage(from string: String) -> UIImage? {
-        guard let url = URL(string: "http://openweathermap.org/img/wn/" + string + "@2x.png") else {
-            return nil
-        }
-        var image: UIImage? = nil
-        do {
-            let data = try Data(contentsOf: url)
-            image = UIImage(data: data)
-        } catch {
-            print(error)
-        }
-        
-        return image
-    }
 }
