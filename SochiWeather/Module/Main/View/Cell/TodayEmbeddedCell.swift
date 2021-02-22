@@ -151,7 +151,7 @@ class TodayEmbeddedCell: UICollectionViewCell {
         }
         
         mmLabel.snp.remakeConstraints { make in
-            make.leading.equalTo(snowLabel.snp.trailing).offset(6)
+            make.leading.equalTo(snowLabel.snp.trailing)
             make.trailing.equalToSuperview().inset(10)
             make.bottom.equalTo(snowLabel)
         }
